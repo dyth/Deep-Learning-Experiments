@@ -14,7 +14,7 @@ import cv2
 import os
 
 # adapted from http://www.pyimagesearch.com/2016/09/26/a-simple-neural-network-with-python-and-keras/
-# example usage python feedforwardnewtork.py -a 3072, 768, 384, 2 -d path/to/dataset
+# example usage python feedforwardnetwork.py -a 3072,768,384,2 -d path/to/dataset
 
 # resizes image to 32 by 32 pixels wide
 def createFeatureVector(image, size=(32, 32)):
