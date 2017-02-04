@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+"""feedforward neural network, from http://www.pyimagesearch.com/2016/09/26/a-simple-neural-network-with-python-and-keras/"""
 from sklearn.preprocessing import LabelEncoder
 from sklearn.cross_validation import train_test_split
 from keras.models import Sequential
@@ -9,22 +9,19 @@ from keras.layers import Dense
 from keras.utils import np_utils
 from imutils import paths
 import numpy as np
-import argparse
-import cv2
-import os
+import argparse, cv2, os
 
-# adapted from http://www.pyimagesearch.com/2016/09/26/a-simple-neural-network-with-python-and-keras/
-# example usage python feedforwardnetwork.py -a 3072,768,384,2 -d path/to/dataset
+# example usage python feedforwardNetwork.py -a 3072,768,384,2 -d ~/Documents/datasets/DogsCats/
 
-# resizes image to 32 by 32 pixels wide
 def createFeatureVector(image, size=(32, 32)):
+    """resize image to 32 * 32 pixels"""
     return cv2.resize(image, size).flatten()
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-d", "--dataset", required=True, help="path to input dataset")
 ap.add_argument("-a", "--architecture", required=True, help="no of neurons in layers")
 args = vars(ap.parse_args())
- 
+
 # start data array, label list, get imagepaths
 print("Describing images...")
 imagePaths, data, labels = list(paths.list_images(args["dataset"])), [], []
