@@ -2,29 +2,27 @@
 """binary perceptron recreated with keras"""
 from keras.models import Sequential
 from keras.layers import Dense, Activation
-from keras.utils import to_categorical
 
 from createData import *
 import numpy as np
 
 
 # variables
-labels, dims, samples = 10, 10, 1000
-
+dims, samples = 2, 1000
 
 # generate training data
-data, test = createData(labels, dims, samples)
+data, test = createData(2, dims, samples)
 
 points_train = np.array([d.position for d in data], np.float64)
-labels_train = to_categorical([d.label for d in data], num_classes = labels)
+labels_train = np.array([d.label for d in data], np.float64)
 
 points_test = np.array([t.position for t in test], np.float64)
-labels_test = to_categorical([t.label for t in test], num_classes = labels)
+labels_test = np.array([t.label for t in test], np.float64)
 
 
 # create noddy model
 model = Sequential()
-model.add(Dense(units=labels, input_dim=dims, activation='softmax'))
+model.add(Dense(units=1, input_dim=dims, activation='sigmoid'))
 model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accuracy'])
 
 
