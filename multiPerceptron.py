@@ -25,7 +25,7 @@ labels_test = to_categorical([t.label for t in test], num_classes = labels)
 # create noddy model
 model = Sequential()
 model.add(Dense(units=labels, input_dim=dims, activation='softmax'))
-model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 # x_train and y_train are Numpy arrays
