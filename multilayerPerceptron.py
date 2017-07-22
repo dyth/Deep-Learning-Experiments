@@ -2,7 +2,6 @@
 """multilayer perceptron trained on XOR problem"""
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
-from keras.optimizers import SGD
 from keras.utils.np_utils import to_categorical
 
 from createXOR import *
