@@ -9,7 +9,7 @@ import numpy as np
 
 
 # variables
-labels, dims, samples = 10, 10, 1000
+labels, dims, samples = 3, 10, 10000
 
 
 # generate training data
@@ -25,11 +25,11 @@ labels_test = to_categorical([t.label for t in test], num_classes = labels)
 # create noddy model
 model = Sequential()
 model.add(Dense(units=labels, input_dim=dims, activation='softmax'))
-model.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 # x_train and y_train are Numpy arrays
-model.fit(points_train, labels_train, epochs=50, batch_size=20)
+model.fit(points_train, labels_train, epochs=50, batch_size=128)
 
 
 # print metrics
