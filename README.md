@@ -15,3 +15,4 @@ All data generated can be done for an arbitrary number of points in arbitrary di
 3. `multilayerPerceptron.py` (accuracy 1.0): multilayer perceptron which can solves the XOR problem for an arbitrary number of dimensions.
 4. `mnistLeNet.py` (accuracy 0.93): an implementation of LeNet-5 (LeCun et al, 1998), but with inputs as (28, 28) instead.
 5. `mnistCNN.py` (accuracy 0.99): convolutional neural network based on LeNet-5 but with better results
+6. `googLeNet.py` (not yet trained): implementation of inceptionNetv1 (googLeNet) (see `googLeNet.png` for network structure), but with Batch Normalization instead of Local Response Normalization.
