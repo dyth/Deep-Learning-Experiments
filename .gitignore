@@ -1,1 +1,5 @@
 *.pyc
+
+# no network weights
+*.t7
+*.fen
